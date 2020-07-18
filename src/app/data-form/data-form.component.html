@@ -1,0 +1,16 @@
+<div style="width:fit-content;padding:10px;margin:auto" *ngIf="error" class="alert  alert-danger">
+    
+      there seems to be some authentication errors log-out and log-in 
+    
+   </div>
+   <br>
+
+<div class="tasks">
+    <form #taskForm='ngForm' (ngSubmit)="addTask(taskForm)">
+        
+        <input type="text" name="task" [(ngModel)]="taskmodel.task">&nbsp;
+    <button class="btn btn-primary">Add Task</button>
+    </form>
+</div>
+<button class="btn btn-warning" (click)="close()">close</button>
+    

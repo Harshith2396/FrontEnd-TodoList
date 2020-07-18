@@ -1,0 +1,17 @@
+<h1 style="text-align: center;">
+    Login Page
+</h1>
+<div *ngIf="alert" style="width: fit-content;padding:10px;margin:auto;" class="alert alert-warning">
+    <h3>Please cheack Email and Password Login failed!</h3>
+</div>
+<br>
+<div class="login">
+    <form #loginForm="ngForm" (ngSubmit)="logins(loginForm)">
+
+        <label > Email</label>&nbsp;<input  type="text" [(ngModel)]="login.email" name="email"><br>
+        <label > Password</label>&nbsp;<input type="text" [(ngModel)]="login.password" name="password"><br>
+        <button style="float: right;" class="btn btn-outline-success">Login</button>
+    </form>
+    <button [routerLink]="['/forgot-password']"   style="float: left;" class="btn btn-outline-warning">Forgot password</button>
+    
+</div>

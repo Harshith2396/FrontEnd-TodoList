@@ -1,0 +1,38 @@
+<div style="width:fit-content;padding:10px;margin:auto" *ngIf="error" class="alert  alert-danger">
+ <h3>
+   there seems to be some authentication errors log-out and log-in 
+ </h3>
+</div>
+<br>
+<br>
+<div style="width: 800px;margin:auto">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+    
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Position Column -->
+      <ng-container matColumnDef="stats">
+        <th mat-header-cell *matHeaderCellDef>{{stats}} </th>
+        <td mat-cell *matCellDef="let element"> <button (click)="Complete(element.task_id)" class="btn btn-success" *ngIf="element.status"> Completed</button>
+          <button (click)="Incomplete(element.task_id)"  class="btn btn-warning" *ngIf="!element.status"> Incomplete</button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="task">
+        <th mat-header-cell *matHeaderCellDef>{{desc}}</th>
+        <td mat-cell *matCellDef="let element"> {{element.task}} </td>
+      </ng-container>
+    &nbsp;
+      <!-- Name Column -->
+      
+      <ng-container matColumnDef="options">
+        <th mat-header-cell *matHeaderCellDef>{{opt}} </th>
+        <td mat-cell *matCellDef="let element"> 
+          <button [disabled]='element.status' class="btn btn-outline-info" (click)="update(element.task_id)"  >Edit</button>&nbsp;
+          <button class="btn btn-outline-danger"  (click)="deletetask(element.task_id)">Delete</button> </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

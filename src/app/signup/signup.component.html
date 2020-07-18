@@ -1,0 +1,21 @@
+<h1 style="text-align: center;">
+    Sign Up Page
+</h1>
+
+<div style="width:fit-content;padding:10px;margin:auto" *ngIf="alerts" class="alert alert-success" role="alert">
+    Congratulations You have successfully Signed Up!!
+</div>
+<div style="width:fit-content;padding:10px;margin:auto" *ngIf="alertf" class="alert alert-warning" role="alert">
+    It seems you have already signed up ! 
+</div>
+<br>
+
+<div class='signup'>
+<form #signups="ngForm" (ngSubmit)="sign(signups)">
+    <label >User Email</label>&nbsp;<input type="text" [(ngModel)]="user.email" name="email"><br>
+    <label >Password</label>&nbsp;<input type="text" [(ngModel)]="user.password" name="password"><br>
+    <div style="float:right "><button  class="btn btn-outline-primary">Sign Up</button></div>
+    
+</form>
+<div style="float:left "><button (click)="loginpage()" class="btn btn-outline-warning">Go To Login</button></div>
+</div>
